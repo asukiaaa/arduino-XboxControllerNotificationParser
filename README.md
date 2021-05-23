@@ -1,6 +1,6 @@
 # arduino-XboxControllerNotificationParser
 
-A library for arduino to parse notification from a xbox controller.
+A library for arduino to parse notification from a xbox series X or S controller.
 
 ## Setup
 

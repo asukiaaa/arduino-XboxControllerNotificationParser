@@ -2,6 +2,20 @@
 
 A library for arduino to parse notification from a xbox controller.
 
+## Setup
+
+### Arduino IDE
+
+Open library manager (Sketch -> Include library -> Manager libraries) then search `XboxControllerNotificationParser` and install it.
+
+### PlatformIO
+
+Add `XboxControllerNotificationParser` as lib_deps in platformio.ini like this.
+
+```
+lib_deps = XboxControllerNotificationParser
+```
+
 ## Usage
 
 Include.

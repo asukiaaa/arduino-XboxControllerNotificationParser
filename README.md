@@ -62,6 +62,7 @@ MIT
 
 # References
 
+- [ESP32とXboxのコントローラーをBLEで接続する方法](https://asukiaaa.blogspot.com/2021/01/communicate-esp32-and-xbox-controller-on-ble.html)
 - [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino)
 - [xpadneo](https://github.com/atar-axis/xpadneo)
 - [hid-xpadneo.c](https://github.com/atar-axis/xpadneo/blob/master/hid-xpadneo/src/hid-xpadneo.c)

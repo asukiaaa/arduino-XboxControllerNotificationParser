@@ -70,11 +70,11 @@ joyRVert | uint16_t | Value of vertical directoin of right joystick.<br />min: 0
 trigLT | uint16_t | Value of left triger.<br />min: 0. max: 0x3ff.
 trigRT | uint16_t | Value of right triger.<br />min: 0. max: 0x3ff.
 
-# License
+## License
 
 MIT
 
-# References
+## References
 
 - [ESP32とXboxのコントローラーをBLEで接続する方法](https://asukiaaa.blogspot.com/2021/01/communicate-esp32-and-xbox-controller-on-ble.html)
 - [NimBLE-Arduino](https://github.com/h2zero/NimBLE-Arduino)

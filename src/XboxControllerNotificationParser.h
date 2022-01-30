@@ -16,6 +16,8 @@ class XboxControllerNotificationParser {
   uint16_t joyLHori, joyLVert, joyRHori, joyRVert, trigLT, trigRT;
   uint8_t update(uint8_t* data, size_t length);
   String toString();
+
+  static const uint16_t maxJoy = 0xffff;
 };
 
 #endif

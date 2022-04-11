@@ -25,7 +25,7 @@ Include.
 
 With using NimBLE-Arduino.
 ```cpp
-XboxControllerNotification xboxNotif;
+XboxControllerNotificationParser xboxNotif;
 
 void notifyCB(NimBLERemoteCharacteristic* pRemoteCharacteristic, uint8_t* pData,
               size_t length, bool isNotify) {

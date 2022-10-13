@@ -43,16 +43,17 @@ uint8_t XboxControllerNotificationParser::update(uint8_t* data, size_t length) {
   btnDirDown = 4 <= btnBits && btnBits <= 6;
   btnDirLeft = 6 <= btnBits && btnBits <= 8;
 
-  joyLHori = (uint16_t) data[0] | ((uint16_t)data[1] << 8);
-  joyLVert = (uint16_t) data[2] | ((uint16_t)data[3] << 8);
-  joyRHori = (uint16_t) data[4] | ((uint16_t)data[5] << 8);
-  joyRVert = (uint16_t) data[6] | ((uint16_t)data[7] << 8);
-  trigLT = (uint16_t) data[8] | ((uint16_t)data[9] << 8);
-  trigRT = (uint16_t) data[10] | ((uint16_t)data[11] << 8);
+  joyLHori = (uint16_t)data[0] | ((uint16_t)data[1] << 8);
+  joyLVert = (uint16_t)data[2] | ((uint16_t)data[3] << 8);
+  joyRHori = (uint16_t)data[4] | ((uint16_t)data[5] << 8);
+  joyRVert = (uint16_t)data[6] | ((uint16_t)data[7] << 8);
+  trigLT = (uint16_t)data[8] | ((uint16_t)data[9] << 8);
+  trigRT = (uint16_t)data[10] | ((uint16_t)data[11] << 8);
   return 0;
 }
 
 String XboxControllerNotificationParser::toString() {
+  // clang-format off
   String str = String("") +
     "btnY: " + String(btnY) + " " +
     "btnX: " + String(btnX) + " " +
@@ -76,5 +77,6 @@ String XboxControllerNotificationParser::toString() {
     "joyRVert: " + String(joyRVert) + "\n" +
     "trigLT: " + String(trigLT) + "\n" +
     "trigRT: " + String(trigRT) + "\n";
+  // clang-format on
   return str;
 }

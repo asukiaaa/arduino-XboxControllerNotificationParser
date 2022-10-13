@@ -6,7 +6,7 @@
 #define XBOX_CONTROLLER_ERROR_INVALID_LENGTH 1
 
 class XboxControllerNotificationParser {
-  public:
+ public:
   XboxControllerNotificationParser();
 
   bool btnA, btnB, btnX, btnY;

@@ -17,6 +17,7 @@ class XboxControllerNotificationParser {
   uint8_t update(uint8_t* data, size_t length);
   String toString();
 
+  static const size_t expectedDataLen = 16;
   static const uint16_t maxJoy = 0xffff;
 };
 

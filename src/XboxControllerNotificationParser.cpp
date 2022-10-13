@@ -1,6 +1,5 @@
 #include "XboxControllerNotificationParser.h"
 
-#define XBOX_CONTROLLER_DATA_LEN 16
 #define XBOX_CONTROLLER_INDEX_BUTTONS_DIR 12
 #define XBOX_CONTROLLER_INDEX_BUTTONS_MAIN 13
 #define XBOX_CONTROLLER_INDEX_BUTTONS_CENTER 14
@@ -16,7 +15,7 @@ XboxControllerNotificationParser::XboxControllerNotificationParser() {
 }
 
 uint8_t XboxControllerNotificationParser::update(uint8_t* data, size_t length) {
-  if (length != 16) {
+  if (length != expectedDataLen) {
     return XBOX_CONTROLLER_ERROR_INVALID_LENGTH;
   }
   uint8_t btnBits;

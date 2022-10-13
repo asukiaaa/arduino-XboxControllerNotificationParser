@@ -19,6 +19,7 @@ class XboxControllerNotificationParser {
 
   static const size_t expectedDataLen = 16;
   static const uint16_t maxJoy = 0xffff;
+  static const uint16_t maxTrig = 0x3ff;
 };
 
 #endif

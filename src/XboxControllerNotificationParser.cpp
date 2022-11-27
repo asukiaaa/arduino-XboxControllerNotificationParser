@@ -52,6 +52,78 @@ uint8_t XboxControllerNotificationParser::update(uint8_t* data, size_t length) {
   return 0;
 }
 
+void XboxControllerNotificationParser::convertU16TU8Arr(uint16_t vU16,
+                                                        uint8_t* data) {
+  data[0] = vU16 & 0xff;
+  data[1] = vU16 >> 8;
+}
+
+uint8_t XboxControllerNotificationParser::toArr(uint8_t* data, size_t length) {
+  if (length < expectedDataLen) {
+    return XBOX_CONTROLLER_ERROR_INVALID_LENGTH;
+  }
+  convertU16TU8Arr(joyLHori, &data[0]);
+  convertU16TU8Arr(joyLVert, &data[2]);
+  convertU16TU8Arr(joyRHori, &data[4]);
+  convertU16TU8Arr(joyRVert, &data[6]);
+  convertU16TU8Arr(trigLT, &data[8]);
+  convertU16TU8Arr(trigRT, &data[10]);
+  {
+    uint8_t btnBits = 0;
+    if (btnA) btnBits |= 0b00000001;
+    if (btnB) btnBits |= 0b00000010;
+    if (btnX) btnBits |= 0b00001000;
+    if (btnY) btnBits |= 0b00010000;
+    if (btnLB) btnBits |= 0b01000000;
+    if (btnRB) btnBits |= 0b10000000;
+    data[XBOX_CONTROLLER_INDEX_BUTTONS_MAIN] = btnBits;
+  }
+  {
+    uint8_t btnBits = 0;
+    if (btnSelect) btnBits |= 0b00000100;
+    if (btnStart) btnBits |= 0b00001000;
+    if (btnXbox) btnBits |= 0b00010000;
+    if (btnLS) btnBits |= 0b00100000;
+    if (btnRS) btnBits |= 0b01000000;
+    data[XBOX_CONTROLLER_INDEX_BUTTONS_CENTER] = btnBits;
+  }
+  {
+    uint8_t btnBits = 0;
+    if (btnShare) btnBits |= 0b00000001;
+    data[XBOX_CONTROLLER_INDEX_BUTTONS_SHARE] = btnBits;
+  }
+  {
+    uint8_t btnBits = 0;
+    if (btnDirUp) {
+      if (btnDirRight) {
+        btnBits = 2;
+      } else if (btnDirLeft) {
+        btnBits = 8;
+      } else {
+        btnBits = 1;
+      }
+    } else if (btnDirDown) {
+      if (btnDirRight) {
+        btnBits = 4;
+      } else if (btnDirLeft) {
+        btnBits = 6;
+      } else {
+        btnBits = 5;
+      }
+    } else {
+      if (btnDirRight) {
+        btnBits = 3;
+      } else if (btnDirLeft) {
+        btnBits = 7;
+      } else {
+        btnBits = 0;
+      }
+    }
+    data[XBOX_CONTROLLER_INDEX_BUTTONS_DIR] = btnBits;
+  }
+  return 0;
+}
+
 String XboxControllerNotificationParser::toString() {
   // clang-format off
   String str = String("") +

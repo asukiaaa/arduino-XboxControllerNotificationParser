@@ -16,7 +16,11 @@ class XboxControllerNotificationParser {
   // button on joy stick
   bool btnLS, btnRS;
   bool btnDirUp, btnDirLeft, btnDirRight, btnDirDown;
-  uint16_t joyLHori, joyLVert, joyRHori, joyRVert, trigLT, trigRT;
+  uint16_t joyLHori = maxJoy / 2;
+  uint16_t joyLVert = maxJoy / 2;
+  uint16_t joyRHori = maxJoy / 2;
+  uint16_t joyRVert = maxJoy / 2;
+  uint16_t trigLT, trigRT;
   uint8_t update(uint8_t* data, size_t length);
   String toString();
 

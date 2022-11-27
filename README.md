@@ -2,6 +2,8 @@
 
 A library for arduino to parse notification from a xbox series X or S controller.
 
+This library is parser. If you want to handle controller of xbox series X or S with ESP32, use [XboxSeriesXControllerESP32_asukiaaa](https://github.com/asukiaaa/arduino-XboxSeriesXControllerESP32) instead.
+
 ## Setup
 
 ### Arduino IDE
